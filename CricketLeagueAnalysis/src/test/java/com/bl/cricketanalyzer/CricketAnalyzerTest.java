@@ -30,4 +30,15 @@ public class CricketAnalyzerTest implements FilePaths {
         } catch (CricketAnalyserException | JsonSyntaxException e) {
         }
     }
+    @Test
+    public void givenWhenCricketData_ShouldReturn_TopStrikeRate() {
+        try {
+            CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
+            cricketAnalyzer.loadCricketData( BATSMEN_DATA );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "strikerate" );
+            BatsMenCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BatsMenCSV[].class );
+            Assert.assertEquals( "Ishant Sharma", censusCSV[0].player );
+        } catch (CricketAnalyserException | JsonSyntaxException e) {
+        }
+    }
 }
