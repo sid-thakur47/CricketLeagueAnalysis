@@ -9,13 +9,15 @@ public class CricketDAO {
     public double strikeRate;
     public int fours;
     public int sixes;
+    public int sumSixFour;
 
     public CricketDAO(BatsMenCSV playerObj) {
-        this.average = playerObj.average;
-        this.fours = playerObj.fours;
-        this.player = playerObj.player;
-        this.runs = playerObj.runs;
-        this.sixes = playerObj.sixes;
-        this.strikeRate = playerObj.strikeRate;
+        average = playerObj.average;
+        fours = playerObj.fours;
+        player = playerObj.player;
+        runs = playerObj.runs;
+        sixes = playerObj.sixes;
+        strikeRate = playerObj.strikeRate;
+        sumSixFour = playerObj.fours + playerObj.sixes;
     }
 }

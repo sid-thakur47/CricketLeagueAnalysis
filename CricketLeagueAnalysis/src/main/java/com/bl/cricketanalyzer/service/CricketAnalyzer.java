@@ -31,9 +31,6 @@ public class CricketAnalyzer {
                     ( reader, BatsMenCSV.class );
             csvFileList.forEach( list -> cricketMap.put( list.player, new CricketDAO( list ) ) );
             return cricketMap.size();
-        } catch (RuntimeException e) {
-            throw new CricketAnalyserException( e.getMessage(),
-                    CricketAnalyserException.ExceptionType.WRONG_DATA );
         } catch (IOException e) {
             throw new CricketAnalyserException( e.getMessage(),
                     CricketAnalyserException.ExceptionType.CRICKET_FILE_PROBLEM );

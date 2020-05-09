@@ -5,7 +5,6 @@ import com.bl.cricketanalyzer.dao.CricketDAO;
 import java.util.Comparator;
 
 public class CricketFactory {
-
     public Comparator<CricketDAO> getCurrentSort(String field) {
 
         Comparator<CricketDAO> comparator = null;
@@ -22,6 +21,10 @@ public class CricketFactory {
                 break;
             case "player":
                 comparator = Comparator.comparing( Cricket -> Cricket.player );
+                break;
+
+            case "sixfour":
+                comparator = Comparator.comparing( cricket -> cricket.sumSixFour );
                 break;
         }
         return comparator;
