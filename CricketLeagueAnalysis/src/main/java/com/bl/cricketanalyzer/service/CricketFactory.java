@@ -26,6 +26,10 @@ public class CricketFactory {
             case "sixfour":
                 comparator = Comparator.comparing( cricket -> cricket.sumSixFour );
                 break;
+            case "strikeandsixfour":
+                comparator = Comparator.comparing( CricketDAO::getStrikeRate )
+                                        .thenComparing( CricketDAO::getSumSixFour );
+                break;
         }
         return comparator;
     }

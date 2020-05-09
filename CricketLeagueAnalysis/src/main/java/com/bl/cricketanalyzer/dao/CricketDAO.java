@@ -20,4 +20,10 @@ public class CricketDAO {
         strikeRate = playerObj.strikeRate;
         sumSixFour = playerObj.fours + playerObj.sixes;
     }
+    public double getStrikeRate() {
+        return strikeRate;
+    }
+    public int getSumSixFour() {
+        return sumSixFour;
+    }
 }

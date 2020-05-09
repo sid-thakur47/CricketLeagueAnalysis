@@ -45,9 +45,20 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( BATSMEN_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "sixandfour" );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "sixfour" );
             BatsMenCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BatsMenCSV[].class );
             Assert.assertEquals( "Andre Russell", censusCSV[0].player );
+        } catch (CricketAnalyserException e) {
+        }
+    }
+    @Test
+    public void given_WhenCricketData_EnquiredForSixFourAndStrikeRate_ShouldReturn_PlayerWithStrikeRateAndMostSixFour() {
+        try {
+            CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
+            cricketAnalyzer.loadCricketData( BATSMEN_DATA );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "strikeandsixfour" );
+            BatsMenCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BatsMenCSV[].class );
+            Assert.assertEquals( "Ishant Sharma", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
         }
     }
