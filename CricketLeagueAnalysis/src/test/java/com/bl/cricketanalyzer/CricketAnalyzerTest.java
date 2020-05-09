@@ -62,4 +62,16 @@ public class CricketAnalyzerTest implements FilePaths {
         } catch (CricketAnalyserException e) {
         }
     }
+    @Test
+    public void given_WhenCricketData_EnquiredForAverageWithStrikeRate_ShouldReturn_PlayerWithStrikeRateAndMostSixFour() {
+        try {
+            CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
+            cricketAnalyzer.loadCricketData( BATSMEN_DATA );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "avgandstrike" );
+            BatsMenCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BatsMenCSV[].class );
+            Assert.assertEquals( "MS Dhoni", censusCSV[0].player );
+        } catch (CricketAnalyserException e) {
+        }
+    }
+
 }

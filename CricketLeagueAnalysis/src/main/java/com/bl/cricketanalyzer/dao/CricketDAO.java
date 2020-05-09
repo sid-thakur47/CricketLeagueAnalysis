@@ -26,4 +26,7 @@ public class CricketDAO {
     public int getSumSixFour() {
         return sumSixFour;
     }
+    public double getAverage() {
+        return Double.parseDouble( average.replace( "-", "0" ) );
+    }
 }
