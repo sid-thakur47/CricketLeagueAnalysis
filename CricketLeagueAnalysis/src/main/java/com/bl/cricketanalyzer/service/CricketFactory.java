@@ -19,7 +19,7 @@ public class CricketFactory {
                 comparator = Comparator.comparing( CricketDAO::getAverage );
                 break;
             case "player":
-                comparator = Comparator.comparing( Cricket -> Cricket.player );
+                comparator = Comparator.comparing( cricket -> cricket.player );
                 break;
 
             case "sixfour":
@@ -33,6 +33,11 @@ public class CricketFactory {
                 comparator = Comparator.comparing( CricketDAO::getAverage )
                         .thenComparing( CricketDAO::getStrikeRate );
                 break;
+            case "runsandavg":
+                comparator = Comparator.comparing( CricketDAO::getRuns )
+                        .thenComparing( CricketDAO::getAverage );
+
+
         }
         return comparator;
     }

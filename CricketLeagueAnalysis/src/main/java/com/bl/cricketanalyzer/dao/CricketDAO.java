@@ -29,4 +29,7 @@ public class CricketDAO {
     public double getAverage() {
         return Double.parseDouble( average.replace( "-", "0" ) );
     }
+    public int getRuns() {
+        return runs;
+    }
 }
