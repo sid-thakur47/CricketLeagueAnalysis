@@ -4,6 +4,7 @@ import com.bl.cricketanalyzer.model.BatsMenCSV;
 import com.bl.cricketanalyzer.model.BowlerCSV;
 
 public class CricketDAO {
+    public  int sumWickets;
     public String player;
     public int runs;
     public double average;
@@ -14,14 +15,14 @@ public class CricketDAO {
     public double economy;
     public int five;
 
-    public CricketDAO(BatsMenCSV playerObj) {
-        average = playerObj.average;
-        fours = playerObj.fours;
-        player = playerObj.player;
-        runs = playerObj.runs;
-        sixes = playerObj.sixes;
-        strikeRate = playerObj.strikeRate;
-        sumSixFour = playerObj.fours + playerObj.sixes;
+    public CricketDAO(BatsMenCSV bowlerObj) {
+        average = bowlerObj.average;
+        fours = bowlerObj.fours;
+        player = bowlerObj.player;
+        runs = bowlerObj.runs;
+        sixes = bowlerObj.sixes;
+        strikeRate = bowlerObj.strikeRate;
+        sumSixFour = bowlerObj.fours + bowlerObj.sixes;
     }
 
     public CricketDAO(BowlerCSV bowlerObj) {
@@ -30,7 +31,8 @@ public class CricketDAO {
         strikeRate = bowlerObj.strikeRate;
         economy = bowlerObj.economy;
         fours = bowlerObj.fourWicket;
-        five = bowlerObj.fiveWickets;
+        five = bowlerObj.fiveWicket;
+        sumWickets=bowlerObj.fourWicket + bowlerObj.fiveWicket;
     }
     public double getStrikeRate() {
         return strikeRate;
@@ -43,5 +45,8 @@ public class CricketDAO {
     }
     public int getRuns() {
         return runs;
+    }
+    public int getSumWickets() {
+        return sumWickets;
     }
 }
