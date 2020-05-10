@@ -20,7 +20,7 @@ public class CricketAnalyzerTest implements FilePaths {
         }
     }
     @Test
-    public void given_WhenCricketData_EnquiredForTopAverage_ShouldReturn_TopBattingAverage() {
+    public void given_WhenCricketData_SortedOnTopAverage_ShouldReturn_TopBattingAverage() {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
@@ -31,7 +31,7 @@ public class CricketAnalyzerTest implements FilePaths {
         }
     }
     @Test
-    public void given_WhenCricketData_EnquiredForStrikeRate_ShouldReturn_TopStrikeRateOfBatsMan() {
+    public void given_WhenCricketData_SortedOnStrikeRate_ShouldReturn_TopStrikeRateOfBatsMan() {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
@@ -42,7 +42,7 @@ public class CricketAnalyzerTest implements FilePaths {
         }
     }
     @Test
-    public void given_WhenCricketData_EnquiredForSixAndFour_ShouldReturn_BatsManWithMostSixAndFour() {
+    public void given_WhenCricketData_SortedOnSixAndFour_ShouldReturn_BatsManWithMostSixAndFour() {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
@@ -53,7 +53,7 @@ public class CricketAnalyzerTest implements FilePaths {
         }
     }
     @Test
-    public void given_WhenCricketData_EnquiredForSixFourAndStrikeRate_ShouldReturn_BatsManWithStrikeRateAndMostSixFour() {
+    public void given_WhenCricketData_SortedOnSixFourAndStrikeRate_ShouldReturn_BatsManWithStrikeRateAndMostSixFour() {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
@@ -64,7 +64,7 @@ public class CricketAnalyzerTest implements FilePaths {
         }
     }
     @Test
-    public void given_WhenCricketData_EnquiredForAverageWithStrikeRate_ShouldReturn_BatsManWithBestAvgWithStrikeRate() {
+    public void given_WhenCricketData_SortedOnAverageWithStrikeRate_ShouldReturn_BatsManWithBestAvgWithStrikeRate() {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
@@ -75,7 +75,18 @@ public class CricketAnalyzerTest implements FilePaths {
         }
     }
     @Test
-    public void given_WhenCricketData_EnquiredForMostRunsWithAverage_ShouldReturn_BowlerTopAvg() {
+    public void given_WhenCricketData_SortedOnMostRunsWithAverage_ShouldReturn_PlayerWithMostRunsAndAvg() {
+        try {
+            CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
+            cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "runsandavg" );
+            BatsMenCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BatsMenCSV[].class );
+            Assert.assertEquals( "David Warner", censusCSV[0].player );
+        } catch (CricketAnalyserException e) {
+        }
+    }
+    @Test
+    public void given_WhenCricketData_SortedOnMostRunsWithAverage_ShouldReturn_BowlerTopAvg() {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
@@ -84,5 +95,5 @@ public class CricketAnalyzerTest implements FilePaths {
             Assert.assertEquals( "Krishnappa Gowtham", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
         }
-    }
+    } 
 }
