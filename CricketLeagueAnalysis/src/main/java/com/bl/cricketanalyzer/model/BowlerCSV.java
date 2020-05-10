@@ -19,5 +19,5 @@ public class BowlerCSV {
     public int fourWicket;
 
     @CsvBindByName(column = "5w", required = true)
-    public int fiveWickets;
+    public int fiveWicket;
 }
