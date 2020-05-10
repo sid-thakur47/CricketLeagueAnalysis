@@ -130,13 +130,24 @@ public class CricketAnalyzerTest implements FilePaths {
         }
     }
     @Test
-    public void given_WhenCricketData_SortedBowlingAvgAndStrikeRate_ShouldReturn_BowlerTopBowlingAvgAndSrikeRate() {
+    public void given_WhenCricketData_SortedBowlingAvgAndStrikeRate_ShouldReturn_BowlerTopBowlingAvgAndStrikeRate() {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
             String sortedCensusData = cricketAnalyzer.getFieldWiseData(AVG_AND_STRIKE_RATE);
             BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
             Assert.assertEquals( "Krishnappa Gowtham", censusCSV[0].player );
+        } catch (CricketAnalyserException e) {
+        }
+    }
+    @Test
+    public void given_WhenCricketData_SortedTopWicketsAndAverage_ShouldReturn_BowlerTopWicketsAndAverage() {
+        try {
+            CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
+            cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData(WICKET_AVERAGE);
+            BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
+            Assert.assertEquals( "Lasith Malinga", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
         }
     }

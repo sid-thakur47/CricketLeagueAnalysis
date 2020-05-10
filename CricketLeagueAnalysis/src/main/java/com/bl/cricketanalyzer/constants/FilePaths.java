@@ -12,9 +12,7 @@ public interface FilePaths {
     String RUNS_AND_AVG="runsAverage";
     String ECONOMY="economy";
     String STRIKE_AND_WICKETS="strikeWickets";
-
-
-
+    String WICKET_AVERAGE="wicketAverage";
     enum Player{
         BATSMEN,BOWLER
     }

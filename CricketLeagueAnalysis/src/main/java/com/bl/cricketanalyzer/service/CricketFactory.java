@@ -58,6 +58,10 @@ public class CricketFactory implements  FilePaths{
                 comparator = Comparator.comparing( CricketDAO::getStrikeRate )
                                         .thenComparing( CricketDAO::getSumWickets );
                 break;
+            case WICKET_AVERAGE:
+                comparator = Comparator.comparing( CricketDAO::getSumWickets )
+                                        .thenComparing( CricketDAO::getAverage );
+                break;
         }
         return comparator;
     }
