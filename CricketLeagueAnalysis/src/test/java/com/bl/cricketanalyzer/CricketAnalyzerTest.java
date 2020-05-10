@@ -24,7 +24,7 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "average" );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( AVERAGE );
             BatsMenCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BatsMenCSV[].class );
             Assert.assertEquals( "MS Dhoni", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
@@ -35,7 +35,7 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "strikerate" );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( STRIKE_RATE );
             BatsMenCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BatsMenCSV[].class );
             Assert.assertEquals( "Ishant Sharma", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
@@ -46,7 +46,7 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "sixfour" );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( SIX_FOUR );
             BatsMenCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BatsMenCSV[].class );
             Assert.assertEquals( "Andre Russell", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
@@ -57,7 +57,7 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "strikeandsixfour" );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( STRIKE_AND_SIX_FOUR );
             BatsMenCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BatsMenCSV[].class );
             Assert.assertEquals( "Ishant Sharma", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
@@ -68,7 +68,7 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "avgandstrike" );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( AVG_AND_STRIKE_RATE );
             BatsMenCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BatsMenCSV[].class );
             Assert.assertEquals( "MS Dhoni", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
@@ -79,7 +79,7 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "runsandavg" );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( RUNS_AND_AVG );
             BatsMenCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BatsMenCSV[].class );
             Assert.assertEquals( "David Warner", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
@@ -90,7 +90,7 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "average" );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( AVERAGE );
             BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
             Assert.assertEquals( "Krishnappa Gowtham", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
@@ -101,7 +101,7 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "strikerate" );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( STRIKE_RATE );
             BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
             Assert.assertEquals( "Krishnappa Gowtham", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
@@ -112,7 +112,7 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "economy" );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( ECONOMY );
             BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
             Assert.assertEquals( "Ben Cutting", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
