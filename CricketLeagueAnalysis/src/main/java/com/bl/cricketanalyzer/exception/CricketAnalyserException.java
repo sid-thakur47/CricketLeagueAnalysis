@@ -8,6 +8,6 @@ public class CricketAnalyserException extends Exception {
         this.type = type;
     }
     public enum ExceptionType {
-         NO_CRICKET_DATA, CRICKET_FILE_PROBLEM
+         NO_CRICKET_DATA, WRONG_CLASS, CRICKET_FILE_PROBLEM,NO_SUCH_CLASS
     }
 } 

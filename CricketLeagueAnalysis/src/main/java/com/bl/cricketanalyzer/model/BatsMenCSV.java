@@ -10,7 +10,7 @@ public class BatsMenCSV {
     public int runs;
 
     @CsvBindByName(column = "Avg", required = true)
-    public String average;
+    public double average;
 
     @CsvBindByName(column = "SR", required = true)
     public double strikeRate;
