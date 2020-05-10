@@ -118,4 +118,15 @@ public class CricketAnalyzerTest implements FilePaths {
         } catch (CricketAnalyserException e) {
         }
     }
+    @Test
+    public void given_WhenCricketData_SortedStrikeRateAndWickets_ShouldReturn_BowlerTopStrikeRateAndWickets() {
+        try {
+            CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
+            cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( STRIKE_AND_WICKETS );
+            BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
+            Assert.assertEquals( "Krishnappa Gowtham", censusCSV[0].player );
+        } catch (CricketAnalyserException e) {
+        }
+    }
 }
