@@ -86,7 +86,7 @@ public class CricketAnalyzerTest implements FilePaths {
         }
     }
     @Test
-    public void given_WhenCricketData_SortedOnMostRunsWithAverage_ShouldReturn_BowlerTopAvg() {
+    public void given_WhenCricketData_SortedOnAverage_ShouldReturn_BowlerTopAvg() {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
@@ -95,5 +95,16 @@ public class CricketAnalyzerTest implements FilePaths {
             Assert.assertEquals( "Krishnappa Gowtham", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
         }
-    } 
+    }
+    @Test
+    public void given_WhenCricketData_SortedOnStrikeRate_ShouldReturn_BowlerTopStrikeRate() {
+        try {
+            CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
+            cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( "strikerate" );
+            BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
+            Assert.assertEquals( "Krishnappa Gowtham", censusCSV[0].player );
+        } catch (CricketAnalyserException e) {
+        }
+    }
 }

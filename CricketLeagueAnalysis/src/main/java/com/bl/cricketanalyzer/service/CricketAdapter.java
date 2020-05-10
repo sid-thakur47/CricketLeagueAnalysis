@@ -16,7 +16,7 @@ import java.util.Map;
 
 public abstract class CricketAdapter {
     Map<String, CricketDAO> cricketMap = new HashMap<>();
-    public abstract Map<String, CricketDAO> loadCricketData(String csvFilePath) throws CricketAnalyserException;
+   public abstract Map<String, CricketDAO> loadCricketData(String csvFilePath) throws CricketAnalyserException;
 
     public <E> Map<String, CricketDAO> loadCricketData(Class<E> cricketClass, String csvFilePath)
                                                         throws CricketAnalyserException {

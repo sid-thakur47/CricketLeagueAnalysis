@@ -5,20 +5,17 @@ import com.bl.cricketanalyzer.dao.CricketDAO;
 import com.bl.cricketanalyzer.exception.CricketAnalyserException;
 import com.google.gson.Gson;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CricketAnalyzer implements FilePaths {
-  public Player player;
     List<CricketDAO> cricketList;
     Map<String, CricketDAO> cricketMap;
 
-        public CricketAnalyzer(Player player) {
-            this.player=player;
-          this.cricketMap = new HashMap<>();
-        }
     public CricketAnalyzer() {
-
     }
     public int loadCricketData(Player player, String csvFilePath) throws CricketAnalyserException {
         cricketMap = CricketFactory.getCricketData( player, csvFilePath );

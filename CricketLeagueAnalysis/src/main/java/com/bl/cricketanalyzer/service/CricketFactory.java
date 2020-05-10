@@ -56,9 +56,9 @@ public class CricketFactory {
 
     public <E> void getCricketObject(Class<E> cricketClass, Map cricketMap, Object cricketCSV) {
         try {
-            Field field = cricketClass.getDeclaredField( "player" );
             Class<?> cricketDAO = Class.forName( "com.bl.cricketanalyzer.dao.CricketDAO" );
             Constructor<?> cricketConstructor = cricketDAO.getConstructor( cricketClass );
+            Field field = cricketClass.getDeclaredField( "player" );
             String value = (String) field.get( cricketCSV );
             cricketMap.put( value, cricketConstructor.newInstance( cricketCSV ) );
         } catch (Exception e) {
