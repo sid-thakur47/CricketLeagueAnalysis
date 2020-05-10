@@ -28,6 +28,25 @@ public class CricketAnalyzer implements FilePaths {
                     CricketAnalyserException.ExceptionType.NO_CRICKET_DATA );
         }
         cricketList = new ArrayList( cricketMap.values() );
+        return sortDataJSONFormat( fieldType );
+    }
+
+    public String mergeBatsMenBowlerData(String batsMenPath, String bowlerPath, String field)
+                                                                            throws CricketAnalyserException {
+        Map<String, CricketDAO> batsMenMap =    CricketFactory.getCricketData( Player.BATSMEN, batsMenPath );
+        Map<String, CricketDAO> bowlerMenMap = CricketFactory.getCricketData( Player.BOWLER, bowlerPath );
+        cricketList = new ArrayList<>();
+        batsMenMap.values().stream().forEach( (batsMen) -> {
+            CricketDAO bowler = bowlerMenMap.get( batsMen.player );
+            CricketDAO dao = new CricketFactory().generateCricketDAO( batsMen, bowler, field );
+            if (dao != null) {
+                cricketList.add( dao );
+            }
+        } );
+        return sortDataJSONFormat( field );
+    }
+
+    private String sortDataJSONFormat(String fieldType) {
         Comparator<CricketDAO> cricketComparator = new CricketFactory().getCurrentSort( fieldType );
         List<CricketDAO> sortedList = cricketList.stream()
                 .sorted( cricketComparator.reversed() )

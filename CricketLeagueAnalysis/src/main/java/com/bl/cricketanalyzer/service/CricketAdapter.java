@@ -15,17 +15,18 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class CricketAdapter {
-    Map<String, CricketDAO> cricketMap = new HashMap<>();
+
    public abstract Map<String, CricketDAO> loadCricketData(String csvFilePath) throws CricketAnalyserException;
 
     public <E> Map<String, CricketDAO> loadCricketData(Class<E> cricketClass, String csvFilePath)
                                                         throws CricketAnalyserException {
+        Map<String, CricketDAO> cricketMap = new HashMap<>();
         try {
             Reader reader = Files.newBufferedReader( Paths.get( csvFilePath ) );
             ICsvBuilder csvBuilderInterface = CSVBuilderFactory.createCSVBuilder();
             List csvFileList = csvBuilderInterface.getCSVFileList   ( reader, cricketClass );
             csvFileList.forEach( (cricketCSV) -> new CricketFactory().getCricketObject( cricketClass,
-                                                                                cricketMap, cricketCSV ) );
+                                                                                    cricketMap, cricketCSV ) );
             return cricketMap;
         } catch (IOException e) {
             throw new CricketAnalyserException( e.getMessage(),

@@ -14,15 +14,18 @@ public class CricketDAO {
     public int sumSixFour;
     public double economy;
     public int five;
+    public double batsmenAvg;
+    public double bowlerAvg;
 
-    public CricketDAO(BatsMenCSV bowlerObj) {
-        average = bowlerObj.average;
-        fours = bowlerObj.fours;
-        player = bowlerObj.player;
-        runs = bowlerObj.runs;
-        sixes = bowlerObj.sixes;
-        strikeRate = bowlerObj.strikeRate;
-        sumSixFour = bowlerObj.fours + bowlerObj.sixes;
+
+    public CricketDAO(BatsMenCSV batsmenObj) {
+        average = batsmenObj.average;
+        fours = batsmenObj.fours;
+        player = batsmenObj.player;
+        runs = batsmenObj.runs;
+        sixes = batsmenObj.sixes;
+        strikeRate = batsmenObj.strikeRate;
+        sumSixFour = batsmenObj.fours + batsmenObj.sixes;
     }
 
     public CricketDAO(BowlerCSV bowlerObj) {
@@ -34,6 +37,14 @@ public class CricketDAO {
         five = bowlerObj.fiveWicket;
         sumWickets=bowlerObj.fourWicket + bowlerObj.fiveWicket;
     }
+    public CricketDAO(CricketDAO batsMen, CricketDAO bowler) {
+        this.player=batsMen.player;
+        this.batsmenAvg=batsMen.average;
+        this.bowlerAvg=bowler.average;
+        this.sumWickets=bowler.sumWickets;
+        this.runs=batsMen.runs;
+    }
+
     public double getStrikeRate() {
         return strikeRate;
     }
@@ -48,5 +59,11 @@ public class CricketDAO {
     }
     public int getSumWickets() {
         return sumWickets;
+    }
+    public double getBatsmenAvg() {
+        return batsmenAvg;
+    }
+    public double getBowlerAvg() {
+        return bowlerAvg;
     }
 }

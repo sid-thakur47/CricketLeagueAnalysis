@@ -13,6 +13,9 @@ public interface FilePaths {
     String ECONOMY="economy";
     String STRIKE_AND_WICKETS="strikeWickets";
     String WICKET_AVERAGE="wicketAverage";
+    String BATSMEN_BOWLER_AVERAGE="batBolAvg";
+
+    String ALL_ROUNDER="allrounder";
     enum Player{
         BATSMEN,BOWLER
     }
