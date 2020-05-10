@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 import java.util.Comparator;
 import java.util.Map;
 
-public class CricketFactory {
+public class CricketFactory implements  FilePaths{
 
     public static Map<String, CricketDAO> getCricketData(FilePaths.Player player,
                                                          String csvFilePath) throws CricketAnalyserException {
@@ -25,34 +25,38 @@ public class CricketFactory {
 
         Comparator<CricketDAO> comparator = null;
         switch (field) {
-            case "strikerate":
+            case STRIKE_RATE:
                 comparator = Comparator.comparing( cricket -> cricket.strikeRate );
                 break;
 
-            case "average":
+            case AVERAGE:
                 comparator = Comparator.comparing( cricket -> cricket.average );
                 break;
 
-            case "sixfour":
+            case SIX_FOUR:
                 comparator = Comparator.comparing( cricket -> cricket.sumSixFour );
                 break;
 
-            case "strikeandsixfour":
+            case STRIKE_AND_SIX_FOUR:
                 comparator = Comparator.comparing( CricketDAO::getStrikeRate )
                                         .thenComparing( CricketDAO::getSumSixFour );
                 break;
 
-            case "avgandstrike":
+            case AVG_AND_STRIKE_RATE:
                 comparator = Comparator.comparing( CricketDAO::getAverage )
                                         .thenComparing( CricketDAO::getStrikeRate );
                 break;
 
-            case "runsandavg":
+            case RUNS_AND_AVG:
                  comparator = Comparator.comparing( CricketDAO::getRuns )
                                         .thenComparing( CricketDAO::getAverage );
                  break;
-            case "economy":
+            case ECONOMY:
                 comparator = Comparator.comparing( cricket -> cricket.economy );
+                break;
+            case STRIKE_AND_WICKETS:
+                comparator = Comparator.comparing( CricketDAO::getStrikeRate )
+                                        .thenComparing( CricketDAO::getSumWickets );
                 break;
         }
         return comparator;
