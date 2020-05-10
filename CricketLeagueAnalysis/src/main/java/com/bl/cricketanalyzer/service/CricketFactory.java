@@ -48,8 +48,12 @@ public class CricketFactory {
                 break;
 
             case "runsandavg":
-                comparator = Comparator.comparing( CricketDAO::getRuns )
+                 comparator = Comparator.comparing( CricketDAO::getRuns )
                                         .thenComparing( CricketDAO::getAverage );
+                 break;
+            case "economy":
+                comparator = Comparator.comparing( cricket -> cricket.economy );
+                break;
         }
         return comparator;
     }
