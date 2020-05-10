@@ -134,7 +134,7 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData(AVG_AND_STRIKE_RATE);
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( AVG_AND_STRIKE_RATE );
             BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
             Assert.assertEquals( "Krishnappa Gowtham", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
@@ -145,7 +145,7 @@ public class CricketAnalyzerTest implements FilePaths {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
-            String sortedCensusData = cricketAnalyzer.getFieldWiseData(WICKET_AVERAGE);
+            String sortedCensusData = cricketAnalyzer.getFieldWiseData( WICKET_AVERAGE );
             BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
             Assert.assertEquals( "Lasith Malinga", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
@@ -155,9 +155,20 @@ public class CricketAnalyzerTest implements FilePaths {
     public void given_WhenCricketData_SortedTopBattingAndBowlingAverage_ShouldReturn_CricketerWithTopAverage() {
         try {
             CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
-            String sortedCensusData = cricketAnalyzer.mergeBatsMenBowlerData( BATSMEN_DATA, BOWLER_DATA,BATSMEN_BOWLER_AVERAGE );
+            String sortedCensusData = cricketAnalyzer.mergeBatsMenBowlerData( BATSMEN_DATA, BOWLER_DATA, BATSMEN_BOWLER_AVERAGE );
             BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
             Assert.assertEquals( "Andre Russell", censusCSV[0].player );
+        } catch (CricketAnalyserException e) {
+        }
+    }
+
+    @Test
+    public void given_WhenCricketData_SortedTopBattingAndBowlingAverage_ShouldReturn_AllRounder() {
+        try {
+            CricketAnalyzer cricketAnalyzer = new CricketAnalyzer();
+            String sortedCensusData = cricketAnalyzer.mergeBatsMenBowlerData( BATSMEN_DATA, BOWLER_DATA, ALL_ROUNDER );
+            BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
+            Assert.assertEquals( "Mohammad Nabi", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
         }
     }

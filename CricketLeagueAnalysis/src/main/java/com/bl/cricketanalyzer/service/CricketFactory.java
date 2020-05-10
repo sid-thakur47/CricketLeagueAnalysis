@@ -65,12 +65,12 @@ public class CricketFactory implements  FilePaths{
 
             case BATSMEN_BOWLER_AVERAGE:
                 comparator = Comparator.comparing( CricketDAO::getBatsmenAvg )
-                        .thenComparing( CricketDAO::getBowlerAvg );
+                                        .thenComparing( CricketDAO::getBowlerAvg );
                 break;
 
             case ALL_ROUNDER:
                 comparator = Comparator.comparing( CricketDAO::getRuns)
-                        .thenComparing( CricketDAO::getSumWickets);
+                                        .thenComparing( CricketDAO::getSumWickets);
                 break;
         }
         return comparator;
@@ -87,11 +87,18 @@ public class CricketFactory implements  FilePaths{
             e.printStackTrace();
         }
     }
+
     public CricketDAO generateCricketDAO(CricketDAO batsMen, CricketDAO bowler,String field) {
         if(field.equals( BATSMEN_BOWLER_AVERAGE )) {
             double batsmenAvg = batsMen.average;
             double bowlerAvg = bowler == null ? 0 : bowler.average;
             if (batsmenAvg != 0 && bowlerAvg != 0)
+                return new CricketDAO( batsMen,bowler);
+        }
+        if(field.equals( ALL_ROUNDER )) {
+            double batsmenRuns = batsMen.runs;
+            double bowlerWickets = bowler == null ? 0 : bowler.sumWickets;
+            if (batsmenRuns != 0 && bowlerWickets != 0)
                 return new CricketDAO( batsMen,bowler);
         }
         return null;

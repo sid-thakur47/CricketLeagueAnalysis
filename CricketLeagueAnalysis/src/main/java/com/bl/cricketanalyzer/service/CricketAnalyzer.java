@@ -17,6 +17,7 @@ public class CricketAnalyzer implements FilePaths {
 
     public CricketAnalyzer() {
     }
+
     public int loadCricketData(Player player, String csvFilePath) throws CricketAnalyserException {
         cricketMap = CricketFactory.getCricketData( player, csvFilePath );
         return cricketMap.size();
@@ -32,17 +33,16 @@ public class CricketAnalyzer implements FilePaths {
     }
 
     public String mergeBatsMenBowlerData(String batsMenPath, String bowlerPath, String field)
-                                                                            throws CricketAnalyserException {
-        Map<String, CricketDAO> batsMenMap =    CricketFactory.getCricketData( Player.BATSMEN, batsMenPath );
-        Map<String, CricketDAO> bowlerMenMap = CricketFactory.getCricketData( Player.BOWLER, bowlerPath );
+                                                 throws CricketAnalyserException {
         cricketList = new ArrayList<>();
+        Map<String, CricketDAO> batsMenMap = CricketFactory.getCricketData( Player.BATSMEN, batsMenPath );
+        Map<String, CricketDAO> bowlerMenMap = CricketFactory.getCricketData( Player.BOWLER, bowlerPath );
         batsMenMap.values().stream().forEach( (batsMen) -> {
             CricketDAO bowler = bowlerMenMap.get( batsMen.player );
             CricketDAO dao = new CricketFactory().generateCricketDAO( batsMen, bowler, field );
             if (dao != null) {
-                cricketList.add( dao );
-            }
-        } );
+                cricketList.add( dao ); }
+        });
         return sortDataJSONFormat( field );
     }
 
