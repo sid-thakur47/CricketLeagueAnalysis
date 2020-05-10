@@ -114,7 +114,7 @@ public class CricketAnalyzerTest implements FilePaths {
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
             String sortedCensusData = cricketAnalyzer.getFieldWiseData( "economy" );
             BowlerCSV[] censusCSV = new Gson().fromJson( sortedCensusData, BowlerCSV[].class );
-            Assert.assertEquals( "Krishnappa Gowtham", censusCSV[0].player );
+            Assert.assertEquals( "Ben Cutting", censusCSV[0].player );
         } catch (CricketAnalyserException e) {
         }
     }
