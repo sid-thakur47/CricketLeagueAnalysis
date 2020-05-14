@@ -2,7 +2,6 @@ package com.bl.cricketanalyzer.service;
 
 import com.bl.cricketanalyzer.dao.CricketDAO;
 import com.bl.cricketanalyzer.exception.CricketAnalyserException;
-import com.bl.cricketanalyzer.model.BatsMenCSV;
 import com.csvbuilder.CSVBuilderFactory;
 import com.csvbuilder.ICsvBuilder;
 

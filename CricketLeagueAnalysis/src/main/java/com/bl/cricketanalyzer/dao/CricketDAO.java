@@ -16,6 +16,7 @@ public class CricketDAO {
     public int five;
     public double batsmenAvg;
     public double bowlerAvg;
+    public int matches;
 
 
     public CricketDAO(BatsMenCSV batsmenObj) {
@@ -35,6 +36,7 @@ public class CricketDAO {
         economy = bowlerObj.economy;
         fours = bowlerObj.fourWicket;
         five = bowlerObj.fiveWicket;
+        matches=bowlerObj.matches;
         sumWickets=bowlerObj.fourWicket + bowlerObj.fiveWicket;
     }
     public CricketDAO(CricketDAO batsMen, CricketDAO bowler) {
@@ -65,5 +67,11 @@ public class CricketDAO {
     }
     public double getBowlerAvg() {
         return bowlerAvg;
+    }
+    public double getEconomy() {
+        return economy;
+    }
+    public int getMatches() {
+        return matches;
     }
 }

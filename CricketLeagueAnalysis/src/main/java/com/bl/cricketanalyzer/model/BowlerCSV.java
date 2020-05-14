@@ -20,4 +20,7 @@ public class BowlerCSV {
 
     @CsvBindByName(column = "5w", required = true)
     public int fiveWicket;
+
+    @CsvBindByName(column = "Mat", required = true)
+    public int matches;
 }
