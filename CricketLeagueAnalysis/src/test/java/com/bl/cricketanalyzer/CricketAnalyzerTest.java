@@ -21,6 +21,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedOnTopAverage_ShouldReturn_TopBattingAverage() {
         try {
@@ -31,6 +32,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedOnStrikeRate_ShouldReturn_TopStrikeRateOfBatsMan() {
         try {
@@ -41,6 +43,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedOnSixAndFour_ShouldReturn_BatsManWithMostSixAndFour() {
         try {
@@ -51,6 +54,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedOnSixFourAndStrikeRate_ShouldReturn_BatsManWithStrikeRateAndMostSixFour() {
         try {
@@ -61,6 +65,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedOnAverageWithStrikeRate_ShouldReturn_BatsManWithBestAvgWithStrikeRate() {
         try {
@@ -71,6 +76,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedOnMostRunsWithAverage_ShouldReturn_PlayerWithMostRunsAndAvg() {
         try {
@@ -81,6 +87,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedOnAverage_ShouldReturn_BowlerTopAvg() {
         try {
@@ -91,6 +98,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedOnStrikeRate_ShouldReturn_BowlerTopStrikeRate() {
         try {
@@ -101,6 +109,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedEconomyRate_ShouldReturn_BowlerTopEconomyRate() {
         try {
@@ -111,6 +120,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedStrikeRateAndWickets_ShouldReturn_BowlerTopStrikeRateAndWickets() {
         try {
@@ -121,6 +131,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedBowlingAvgAndStrikeRate_ShouldReturn_BowlerTopBowlingAvgAndStrikeRate() {
         try {
@@ -131,6 +142,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedTopWicketsAndAverage_ShouldReturn_BowlerTopWicketsAndAverage() {
         try {
@@ -141,6 +153,7 @@ public class CricketAnalyzerTest implements Contants {
         } catch (CricketAnalyserException e) {
         }
     }
+
     @Test
     public void given_WhenCricketData_SortedTopBattingAndBowlingAverage_ShouldReturn_CricketerWithTopAverage() {
         try {
