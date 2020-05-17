@@ -16,9 +16,11 @@ public class CricketAnalyzerTest implements Contants {
     @Test
     public void given_When_CricketData_Correct_Should_ReturnsCorrectRecords() {
         try {
-            int numOfRecords = cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
-            Assert.assertEquals( 00, numOfRecords );
+            int numOfRecords = 0;
+            numOfRecords = cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
+            Assert.assertEquals( 100, numOfRecords );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -30,6 +32,7 @@ public class CricketAnalyzerTest implements Contants {
             BatsMenCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BatsMenCSV[].class );
             Assert.assertEquals( "MS Dhoni", cricketCSV[0].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -41,6 +44,7 @@ public class CricketAnalyzerTest implements Contants {
             BatsMenCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BatsMenCSV[].class );
             Assert.assertEquals( "Ishant Sharma", cricketCSV[0].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -52,17 +56,20 @@ public class CricketAnalyzerTest implements Contants {
             BatsMenCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BatsMenCSV[].class );
             Assert.assertEquals( "Andre Russell", cricketCSV[0].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
     @Test
-    public void given_WhenCricketData_SortedOnSixFourAndStrikeRate_ShouldReturn_BatsManWithStrikeRateAndMostSixFour() {
+    public void given_WhenCricketData_SortedOnSixFourAndStrikeRate_ShouldReturn_BatsManWithStrikeRateAndMostSixFour
+            () {
         try {
             cricketAnalyzer.loadCricketData( Player.BATSMEN, BATSMEN_DATA );
             String sortedCricketData = cricketAnalyzer.getFieldWiseData( STRIKE_AND_SIX_FOUR );
             BatsMenCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BatsMenCSV[].class );
             Assert.assertEquals( "Andre Russell", cricketCSV[0].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -74,6 +81,7 @@ public class CricketAnalyzerTest implements Contants {
             BatsMenCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BatsMenCSV[].class );
             Assert.assertEquals( "David Warner", cricketCSV[0].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -85,6 +93,7 @@ public class CricketAnalyzerTest implements Contants {
             BatsMenCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BatsMenCSV[].class );
             Assert.assertEquals( "David Warner", cricketCSV[0].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -94,8 +103,9 @@ public class CricketAnalyzerTest implements Contants {
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
             String sortedCricketData = cricketAnalyzer.getFieldWiseData( AVERAGE );
             BowlerCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BowlerCSV[].class );
-            Assert.assertEquals( "Anukul Roy", cricketCSV[cricketCSV.length-1].player );
+            Assert.assertEquals( "Anukul Roy", cricketCSV[cricketCSV.length - 1].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -105,8 +115,9 @@ public class CricketAnalyzerTest implements Contants {
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
             String sortedCricketData = cricketAnalyzer.getFieldWiseData( STRIKE_RATE );
             BowlerCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BowlerCSV[].class );
-             Assert.assertEquals( "Alzarri Joseph", cricketCSV[cricketCSV.length-1].player );
+            Assert.assertEquals( "Alzarri Joseph", cricketCSV[cricketCSV.length - 1].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -116,8 +127,9 @@ public class CricketAnalyzerTest implements Contants {
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
             String sortedCricketData = cricketAnalyzer.getFieldWiseData( ECONOMY );
             BowlerCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BowlerCSV[].class );
-            Assert.assertEquals( "Shivam Dube", cricketCSV[cricketCSV.length-1].player );
+            Assert.assertEquals( "Shivam Dube", cricketCSV[cricketCSV.length - 1].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -127,8 +139,9 @@ public class CricketAnalyzerTest implements Contants {
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
             String sortedCricketData = cricketAnalyzer.getFieldWiseData( STRIKE_AND_WICKETS );
             BowlerCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BowlerCSV[].class );
-            Assert.assertEquals( "Kagiso Rabada", cricketCSV[cricketCSV.length-1].player );
+            Assert.assertEquals( "Kagiso Rabada", cricketCSV[cricketCSV.length - 1].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -138,8 +151,9 @@ public class CricketAnalyzerTest implements Contants {
             cricketAnalyzer.loadCricketData( Player.BOWLER, BOWLER_DATA );
             String sortedCricketData = cricketAnalyzer.getFieldWiseData( BOWL_AVG_AND_STRIKE_RATE );
             BowlerCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BowlerCSV[].class );
-            Assert.assertEquals( "Kagiso Rabada", cricketCSV[cricketCSV.length-1].player );
+            Assert.assertEquals( "Kagiso Rabada", cricketCSV[cricketCSV.length - 1].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -151,6 +165,7 @@ public class CricketAnalyzerTest implements Contants {
             BowlerCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BowlerCSV[].class );
             Assert.assertEquals( "Imran Tahir", cricketCSV[0].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -161,6 +176,7 @@ public class CricketAnalyzerTest implements Contants {
             BowlerCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BowlerCSV[].class );
             Assert.assertEquals( "Andre Russell", cricketCSV[0].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 
@@ -171,6 +187,7 @@ public class CricketAnalyzerTest implements Contants {
             BowlerCSV[] cricketCSV = new Gson().fromJson( sortedCricketData, BowlerCSV[].class );
             Assert.assertEquals( "Andre Russell", cricketCSV[0].player );
         } catch (CricketAnalyserException e) {
+            e.printStackTrace();
         }
     }
 }
